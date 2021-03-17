@@ -34,19 +34,16 @@
 				<td>Thời gian cập nhật</td>
 				<td></td>
 			</tr>
-			<tbody>
-				<?php
-				<tr>
-					<td><?php echo $value['masp']?></td>
-					<td><?php echo $value['tensp']?></td>
-					<td><?php echo $value['soluong']?></td>
-					<td><?php echo $value['dongia']?></td>
-					<td><?php echo $value['thanhtien']?></td>
-					<td><?php echo $value['time']?></td>
-					<td><a href="addGH.php?masp=<?php echo $key ?>">Xóa khỏi giỏ hàng</a></td>
-				</tr>
-				?>
-			</tbody>
+			<tr>
+				<td>php</td>
+				<td>Iphone 4 32GB</td>
+				<td>1</td>
+				<td>5,000,000</td>
+				<td>5,000,000</td>
+				<td>5,000,000</td>
+				<td><a href="">Xóa khỏi giỏ hàng</a></td>
+			</tr>
+
 			<tr>
 				<td class="text" colspan="4">Tổng tiền:</td>
 				<td></td>
