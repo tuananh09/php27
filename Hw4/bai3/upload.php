@@ -3,19 +3,19 @@
 	if(isset($_POST['submit'])){
 		$target_dir = "files/";  // thư mục chứa file upload
 
-        $target_file = $target_dir . basename($_FILES["document"]["name"]); // link sẽ upload file lên
+        $target_file = $target_dir . basename($_FILES["data"]["name"]); // link sẽ upload file lên
        
-        if (move_uploaded_file($_FILES["document"]["tmp_name"], $target_file)) { // nếu upload file không có lỗi 
-            echo "The file ". basename( $_FILES["document"]["name"]). " has been uploaded.";
-            $doc_info = array(
+        if (move_uploaded_file($_FILES["data"]["tmp_name"], $target_file)) { // nếu upload file không có lỗi 
+            echo "The file ". basename( $_FILES["data"]["name"]). "file đã được tải lên!";
+            $info = array(
                 'name' => $_POST['name'],
-                'file_name' => basename( $_FILES["document"]["name"])
+                'file_name' => basename( $_FILES["data"]["name"])
 
             );
-            $_SESSION['files'][] = $doc_info;
-            header('Location: index.php');
+            $_SESSION['files'][] = $info;
+            header('Location: index1.php');
         } else { // Upload file có lỗi 
-            echo "Sorry, there was an error uploading your file.";
+            echo "Đã xảy ra lỗi khi tải tệp của bạn lên!";
         }
 	}
 
@@ -48,10 +48,9 @@
             
             <div class="form-group">
                 <label for="">Image</label>
-                <input type="file" class="form-control" id="" placeholder="" name="document">
+                <input type="file" class="form-control" id="" placeholder="" name="data">
             </div> 
-            
-            <button type="submit" name="submit" class="btn btn-primary">Upload</button>
+            <button  type="submit" name="submit" class="btn btn-primary"><a href="index1.php"></a>Upload</button>
         </form>
     </div>
 </body>

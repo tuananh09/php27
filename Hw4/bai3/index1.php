@@ -1,6 +1,6 @@
 <?php 
    session_start();
-   $documents = $_SESSION['documents'];
+   $files = $_SESSION['files'];
 ?>
 
 <!DOCTYPE html>
@@ -33,11 +33,11 @@
                  <th>#</th>
                </tr>
          </thead>
-         <?php foreach($documents as $key=> $document){ ?>
+         <?php foreach($files as $key=> $data){ ?>
          <tr>
             <td><?= $key ?></td>
-            <td><?= $document['name'] ?></td>
-            <td><a class="btn btn-primary" href="documents/<?= $document['file_name'] ?>">Download</a></td>
+            <td><?= $data['name'] ?></td>
+            <td><a class="btn btn-primary" href="files/<?= $data['file_name'] ?>">Download</a></td>
             <td><a class="btn btn-danger" href="remove.php?id=<?=$key?>">Remove</a></td>
          </tr>
          <?php } ?>
