@@ -1,6 +1,6 @@
 <?php 
 	session_start();
-	if (isset($_POST['luu'])) {
+	if (isset($_POST['save'])) {
 		$_SESSION['sinhvien'][$_POST['masv']] = array(
 			'masv' => $_POST['masv'],
 			'hoten' => $_POST['hoten'],

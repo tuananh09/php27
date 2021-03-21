@@ -66,7 +66,7 @@
 		</div>
 		<div class="form-group row">
 			<div class="col-sm-10">
-				<button type="submit" class="btn btn-primary" name="luu">Lưu thông tin</button>
+				<button type="submit" class="btn btn-primary" name="save">Lưu thông tin</button>
 			</div>
 		</div>
 	</form>
