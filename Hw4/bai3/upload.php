@@ -1,11 +1,14 @@
 <?php 
 	 session_start();
 	if(isset($_POST['submit'])){
-		$target_dir = "files/";  // thư mục chứa file upload
+		// thư mục chứa file upload
+		$target_dir = "files/"; 
 
-        $target_file = $target_dir . basename($_FILES["data"]["name"]); // link sẽ upload file lên
+		// link sẽ upload file lên
+        $target_file = $target_dir . basename($_FILES["data"]["name"]);
        
-        if (move_uploaded_file($_FILES["data"]["tmp_name"], $target_file)) { // nếu upload file không có lỗi 
+       	// nếu upload file không có lỗi
+        if (move_uploaded_file($_FILES["data"]["tmp_name"], $target_file)) { 
             echo "The file ". basename( $_FILES["data"]["name"]). "file đã được tải lên!";
             $info = array(
                 'name' => $_POST['name'],
@@ -43,12 +46,12 @@
             
             <div class="form-group">
                 <label for="">Tên tài liệu</label>
-                <input type="text" class="form-control" id="" placeholder="" name="name">
+                <input type="text" class="form-control" placeholder="" name="name">
             </div>
             
             <div class="form-group">
                 <label for="">Image</label>
-                <input type="file" class="form-control" id="" placeholder="" name="data">
+                <input type="file" class="form-control" placeholder="" name="data">
             </div> 
             <button  type="submit" name="submit" class="btn btn-primary"><a href="index1.php"></a>Upload</button>
         </form>
