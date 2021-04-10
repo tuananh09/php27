@@ -1,17 +1,3 @@
-<?php 
-	require_once('connection.php');
-
-	//Câu lệnh truy vấn
-	$query = "SELECT * FROM posts";
-
-	$result = $conn->query($query);
-
-	while ($row = $result ->fetch_assoc()) {
-		$posts[] = $row;
-	}
-
- ?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -41,7 +27,7 @@
 			<th>View Count</th>
 		</thead>
 		<?php 
-		$i = 0;
+		$i = 0;	
 		foreach($posts as $post){ $i++?>
 			
 			<tr>
@@ -53,7 +39,7 @@
 				</td>
 				<td class="text-center"><?=$post['view_count'] ?></td>
 				<td>
-					<a href="post_detail.php?id=<?=$post['id'] ?>" class="btn btn-primary">Detail</a>
+					<a href="index.php?mod=post&act=detail&id=<?= $post['id'] ?>" class="btn btn-primary">Detail</a>
 					<a href="post_edit.php?id=<?=$post['id'] ?>" class="btn btn-success">Edit</a>
 					<a href="post_delete.php?id=<?=$post['id'] ?>" class="btn btn-danger">Delete</a>
 				</td>

@@ -36,10 +36,7 @@
     <h3 align="center">Add New Category</h3>
     <hr>
     <form action="category_add_process.php" method="POST" role="form" enctype="multipart/form-data">
-      <div class="form-group">
-        <label for="">ID</label>
-        <input type="text" class="form-control" id="" placeholder="" name="id">
-      </div>
+      
       <div class="form-group">
         <label for="">Name</label>
         <input type="text" class="form-control" id="" placeholder="" name="name">

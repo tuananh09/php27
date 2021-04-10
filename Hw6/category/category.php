@@ -44,10 +44,13 @@ while($row = $result->fetch_assoc()) {
 			<th>Description</th>
 			<th>Action</th>
 		</thead>
-		<?php foreach($categories as $cate){ $i = 1;?>
+
+		<?php 
+		$i = 0;
+		 foreach($categories as $cate){ $i++;?>
 			
 			<tr>
-				<td><?=$cate['id'] ?></td>
+				<td><?=$i?></td>
 				<td><?=$cate['name'] ?></td>
 				<td>
 					<img src="<?=$cate['thumbnail'] ?>" width="100px" height="100px">
@@ -60,7 +63,7 @@ while($row = $result->fetch_assoc()) {
 					<a href="category_delete.php?id=<?=$cate['id'] ?>" class="btn btn-danger">Delete</a>
 				</td>
 			</tr>
-			<?php $i++;} ?>
+			<?php } ?>
 		</table>
 	</div>
 

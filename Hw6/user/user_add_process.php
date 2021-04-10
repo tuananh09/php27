@@ -1,9 +1,8 @@
 <?php 
 	$data = $_POST;
 	require_once('connection.php');
-  if ($data['user']==0) $data['user']='';
  
-  	$query = "INSERT INTO users (id, name, email, password) VALUES ('".$data['id']."', '".$data['name']."', '".$data['email']."', '".$data['password']."')";
+  	$query = "INSERT INTO users (name, email, password) VALUES ('".$data['name']."', '".$data['email']."', '".$data['password']."')";
 
   	$result = $conn->query($query);
   	if ($result == true) {

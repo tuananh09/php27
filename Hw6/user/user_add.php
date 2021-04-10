@@ -38,10 +38,6 @@
     <hr>
     <form action="user_add_process.php" method="POST" role="form" enctype="multipart/form-data">
       <div class="form-group">
-        <label for="">ID</label>
-        <input type="text" class="form-control" id="" placeholder="" name="id">
-      </div>
-      <div class="form-group">
         <label for="">Name</label>
         <input type="text" class="form-control" id="" placeholder="" name="name">
       </div>
