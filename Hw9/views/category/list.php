@@ -17,9 +17,22 @@
 <body>
   <div class="container">
     <h3 class="text-center">--- CATEGORIES ---</h3>
-    <a href="category_add.php" class="btn btn-primary">Add New Category</a>
+    <a href="?mod=category&act=create" class="btn btn-primary">Add New Category</a><br>
 
-    <p><?php echo (isset($_COOKIE['cate_add_msg'])?$_COOKIE['cate_add_msg']: '') ?></p>
+    <?php if(isset($_COOKIE['success'])){ ?>
+      <div class="alert alert_success" role="alert">
+        <strong>Thông báo: </strong>
+        <?php echo $_COOKIE['success'] ?>
+      </div>
+    <?php } ?>
+
+    <?php if(isset($_COOKIE['error'])){ ?>
+      <div class="alert alert_error" role="alert">
+        <strong>Thông báo: </strong>
+        <?php echo $_COOKIE['error'] ?>
+      </div>
+    <?php } ?>
+
     <table class="table">
       <th>ID</th>
       <th>Name</th>
@@ -40,13 +53,13 @@
         </td>
         <td><?=$cate['description'] ?></td>
         <td>
-          <a href="index.php?mod=category&act=detail&id=<?=$cate['id'] ?>" class="btn btn-primary">Detail</a>
-          <a href="category_edit.php?id=<?=$cate['id'] ?>" class="btn btn-success">Edit</a>
-          <a href="category_delete.php?id=<?=$cate['id'] ?>" class="btn btn-danger">Delete</a>
+          <a href="?mod=category&act=detail&id=<?=$cate['id'] ?>" class="btn btn-primary">Detail</a>
+          <a href="?mod=category&act=edit&id=<?=$cate['id'] ?>" class="btn btn-success">Edit</a>
+          <a href="?mod=category&act=delete&id=<?=$cate['id']?>" class="btn btn-danger">Delete</a>
         </td>
       </tr>
       <?php } ?>
-    </table>
+    </table>  
   </div>
 
 </body>

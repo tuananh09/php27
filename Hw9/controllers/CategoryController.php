@@ -1,31 +1,66 @@
 <?php 
 require_once('models/Category.php');
 class CategoryController{
+	var $model;
 	function __construct(){
+		$this->model= new Category();
 	}
 	
 	function list(){
-		$model = new Category();
-		$categories = $model->all();
+		$categories = $this->model->all();
 		require_once('views/category/list.php');
 	}
 
 	function detail(){
-		$model = new Category();
-		
 		$id = $_GET['id'];
-		$category = $model->find($id);
+		$category = $this->model->find($id);
 		require_once('views/category/detail.php');
 	}
 
-	function add(){
-		echo "<br>Form thêm mới Category";
+	function create(){
+		require_once 'views/category/create.php';		
 	}
-	function add_prosess(){
-		echo "<br>Form thêm mới chi tiết Category";
+
+	//Hàm thực hiện(create_process)
+	function store(){
+		$data =$_POST;
+		$success = $this->model->create($data);
+			if ($success) {
+			setcookie('success', 'Thêm mới thành công', time()+5);
+		}else{
+			setcookie('error', 'Thêm mới thất bại', time()+5);
+		}
+		header('Location:?mod=category&act=list');
 	}
+
+	function delete(){
+		$id = $_GET['id'];
+
+		$success = $this->model->delete($id);
+		if ($success) {
+			setcookie('success', 'Xóa thành công', time()+5);
+		}else{
+			setcookie('error', 'Xóa thất bại', time()+5);
+		}
+		header('Location:?mod=category&act=list');
+	}
+
 	function edit(){
-		echo "<br>Form sửa Category";
+		$data = $_GET['id'];
+		$category = $this->model->find($data);
+		require_once 'views/category/edit.php';		
 	}
+
+	function update(){
+		$data = $_POST;
+		$success = $this->model->update($data);
+		if ($success) {
+			setcookie('success', 'update thành công', time()+5);
+		}else{
+			setcookie('error', 'update thất bại', time()+5);
+		}
+		header('Location:?mod=category&act=list');
+	}
+
 }
 ?>

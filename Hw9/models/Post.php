@@ -28,5 +28,20 @@
 				// Thực thi câu lệnh
 			return $this->connection->query($sql)->fetch_assoc();
 		}
+
+		function create($data){
+			$sql = "INSERT INTO posts (title, description, category_id, content) VALUES ('".$data['name']."', '".$data['description']."', '".$data['category_id']."', '".$data['content']."')";
+			return $this->connection->query($sql);
+		}
+		
+		public function delete($id){
+			$sql = "DELETE FROM posts WHERE id = ".$id;
+	    return $this->connection->query($sql); 
+		}
+
+		function update($data){
+			$sql = "UPDATE posts SET name = '".$data['name']."', description = '".$data['description']."' WHERE id ='".$data['id']."'";
+			return $this->connection->query($sql);
+		}
 }
  ?>

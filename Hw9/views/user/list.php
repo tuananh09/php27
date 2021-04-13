@@ -16,9 +16,22 @@
 <body>
 	<div class="container">
 		<h3 class="text-center">--- USER ---</h3>
-		<a href="user_add.php" class="btn btn-primary">Add New User</a>
+		<a href="?mod=user&act=create" class="btn btn-primary">Add New User</a>
 
-		<p><?php echo (isset($_COOKIE['cate_add_msg'])?$_COOKIE['cate_add_msg']: '') ?></p>
+		<?php if(isset($_COOKIE['success'])){ ?>
+	      <div class="alert alert_success" role="alert">
+	        <strong>Thông báo: </strong>
+	        <?php echo $_COOKIE['success'] ?>
+	      </div>
+	    <?php } ?>
+
+	    <?php if(isset($_COOKIE['error'])){ ?>
+	      <div class="alert alert_error" role="alert">
+	        <strong>Thông báo: </strong>
+	        <?php echo $_COOKIE['error'] ?>
+	      </div>
+	    <?php } ?>
+
 		<table class="table">
 			<th>ID</th>
 			<th>Name</th>
@@ -36,9 +49,9 @@
 					<img src="<?=$user['avatar'] ?>" width="100px" height="100px">
 				</td>
 				<td>
-					<a href="index.php?mod=user&act=detail&id=<?= $user['id'] ?>" class="btn btn-primary">Detail</a>
-					<a href="user_edit.php?id=<?=$user['id'] ?>" class="btn btn-success">Edit</a>
-					<a href="user_delete.php?id=<?=$user['id'] ?>" class="btn btn-danger">Delete</a>
+					<a href="?mod=user&act=detail&id=<?= $user['id'] ?>" class="btn btn-primary">Detail</a>
+					<a href="?mod=user&act=edit&id=<?= $user['id'] ?>" class="btn btn-success">Edit</a>
+					<a href="?mod=user&act=delete&id=<?= $user['id'] ?>" class="btn btn-danger">Delete</a>
 				</td>
 			</tr>
 		<?php } ?>

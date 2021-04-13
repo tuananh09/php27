@@ -28,5 +28,20 @@
 				// Thực thi câu lệnh
 			return $this->connection->query($sql)->fetch_assoc();
 		}
+
+		function create($data){
+			$sql = "INSERT INTO users (name, email, password) VALUES ('".$data['name']."', '".$data['email']."', '".$data['password']."')";
+			return $this->connection->query($sql);
+		}
+		
+		public function delete($id){
+			$sql = "DELETE FROM users WHERE id = ".$id;
+	    return $this->connection->query($sql); 
+		}
+
+		function update($data){
+			$sql = "UPDATE users SET name = '".$data['name']."', email='".$data['email']."' WHERE id = ".$data['id'];
+			return $this->connection->query($sql);
+		}
 }
  ?>

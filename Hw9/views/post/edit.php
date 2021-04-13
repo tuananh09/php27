@@ -15,7 +15,7 @@
 </head>
 <body>
   <div class="container">
-    <h3 align="center">Update Category</h3>
+    <h3 align="center">Update Post</h3>
     <hr>
     <form action="?mod=category&act=update" method="POST" role="form" enctype="multipart/form-data">
       <div class="form-group">

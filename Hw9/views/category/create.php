@@ -15,26 +15,19 @@
 </head>
 <body>
   <div class="container">
-    <h3 align="center">Update Category</h3>
+    <h3 align="center">Add New Category</h3>
     <hr>
-    <form action="?mod=category&act=update" method="POST" role="form" enctype="multipart/form-data">
+    <form action="?mod=category&act=store" method="POST" role="form" enctype="multipart/form-data">
       <div class="form-group">
         <label for="">Name</label>
-        <input type="hidden" class="form-control" id="" placeholder="" name="id" value="<?=$category['id']?>"> 
-
-        <input type="text" class="form-control" id="" placeholder="" name="name" value="<?=$category['name']?>"> 
+        <input type="text" class="form-control" id="" placeholder="" name="name">
       </div>
-      <!-- <div class="form-group">
-        <label for="">Images</label>
-        <input type="text" class="form-control" id="" placeholder="" name="img">
-      </div> -->
-      
       <div class="form-group">
         <label for="">Description</label>
-        <input type="text" class="form-control" id="" placeholder="" name="description" value="<?=$category['description']?>">
+        <input type="text" class="form-control" id="" placeholder="" name="description">
       </div>
       
-      <button type="submit" class="btn btn-primary">Update</button>
+      <button type="submit" class="btn btn-primary">Create</button>
     </form>
   </div>
 </body>
