@@ -6,6 +6,16 @@ class CategoryController{
 		$this->model= new Category();
 	}
 	
+	public function index(){
+		$modelCategory = new Category();
+		$categories = $modelCategory->all();
+		$minh = 'Lê Hồng Minh';
+		$this->view(name:'views/categories/index', [
+			'categories' => $categories,
+			'minh' =>$minh
+		]);
+	}
+
 	function list(){
 		$categories = $this->model->all();
 		require_once('views/category/list.php');

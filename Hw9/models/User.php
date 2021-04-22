@@ -30,7 +30,7 @@
 		}
 
 		function create($data){
-			$sql = "INSERT INTO users (name, email, password) VALUES ('".$data['name']."', '".$data['email']."', '".$data['password']."')";
+			$sql = "INSERT INTO users (name, email, password) VALUES ('".$data['name']."', '".$data['email']."', '".md5($data['password']."'))";
 			return $this->connection->query($sql);
 		}
 		
